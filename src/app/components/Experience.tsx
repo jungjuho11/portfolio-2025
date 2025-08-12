@@ -55,7 +55,7 @@ const experiences: ExperienceItem[] = [
       "Involve in sprint ceremonies (estimate, and planning)",
       "Solid understanding of Git Resource Control"
     ],
-    technologies: ["Gatsby.js", "ReactJs", "JavaScript", "CSS", "HTML", "Git"],
+    technologies: ["Gatsby.js", "ReactJs", "JavaScript", "Firebase", "CSS", "HTML", "Git"],
     link: "https://milanlaser.com"
   },
   {
@@ -72,7 +72,7 @@ const experiences: ExperienceItem[] = [
       "Managed user accounts, permissions, and access control using Okta to ensure data security and smooth business operations.",
       "Maintained accurate IT asset inventory and documentation, tracking device assignments, lifecycle, and support history."
     ],
-    technologies: ["Gatsby.js", "ReactJs", "JavaScript", "CSS", "HTML", "Git"],
+    technologies: ["MDM", "Mosyle", "Jamf", "Networking", "Okta", "Apple Business Manager", "Google Workspace", "Microsoft Office 365"],
     link: "https://milanlaser.com"
   },
   {
@@ -89,7 +89,7 @@ const experiences: ExperienceItem[] = [
       "Researched, recommended, and implemented new technologies to enhance system performance and usability.",
       "Managed the WordPress website to ensure it is up to date with the latest core, theme, and plugin updates for optimal security and performance."
     ],
-    technologies: ["Cisco", "CSS3", "HTML5", "Sass", "Webpack"],
+    technologies: [],
     link: "https://milittisales.com/"
   }
 ];
