@@ -59,7 +59,7 @@ const experiences: ExperienceItem[] = [
     link: "https://milanlaser.com"
   },
   {
-    id: 2,
+    id: 3,
     company: "Milan Laser",
     position: "Service Desk Specialist",
     duration: "Apr 2022 - Sep 2022",
@@ -76,7 +76,7 @@ const experiences: ExperienceItem[] = [
     link: "https://milanlaser.com"
   },
   {
-    id: 3,
+    id: 4,
     company: "Militti Sales & Promotions",
     position: "System Administrator",
     duration: "Aug 2021 - Apr 2022",
