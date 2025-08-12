@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Linkedin, Github } from 'lucide-react';
+import { Mail, MapPin, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   const containerVariants = {

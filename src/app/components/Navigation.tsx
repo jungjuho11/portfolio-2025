@@ -58,7 +58,7 @@ const Navigation = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            JJ's Portfolio
+            JJ&apos;s Portfolio
           </motion.div>
 
           {/* Desktop Navigation */}

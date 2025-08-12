@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Linkedin, Mail } from 'lucide-react';
 import Image from 'next/image';
 
 const Hero = () => {
