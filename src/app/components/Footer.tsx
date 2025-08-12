@@ -20,7 +20,7 @@ const Footer = () => {
           <p className="text-slate-500 text-xs mt-2 flex items-center justify-center space-x-1">
             <span>Made with</span>
               <Heart className="w-3 h-3 text-red-400 fill-current" />
-            <span>using Next.js & Tailwind CSS</span>
+            <span>using Next.js, Tailwind CSS, Framer Motion & Lucide React</span>
           </p>
         </motion.div>
       </div>
