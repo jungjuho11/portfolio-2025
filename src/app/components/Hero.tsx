@@ -131,6 +131,10 @@ const Hero = () => {
             Software Developer & IT Solutions Specialist
           </motion.h3>
 
+          <motion.h4 className=" text-slate-300 mb-6" variants={itemVariants}>
+                U.S. Citizen
+          </motion.h4>
+
           {/* Description */}
           <motion.p
             className="text-lg text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed"
