@@ -1,0 +1,71 @@
+{
+   "name": "Juho Jung",
+   "location": "Omaha, NE",
+   "phone": "+1 402-201-3678",
+   "email": "jungjuho@yahoo.com",
+   "citizenship": "U.S. Citizen",
+   "links": {
+     "linkedin": "https://linkedin.com/in/juho-jung-a58442152",
+     "portfolio": "https://juho-portfolio.netlify.app"
+   },
+   "summary": "A versatile Software and Web Developer with experience creating and optimizing full-stack applications. Proven ability to translate complex business needs into effective technical solutions using modern technologies. A collaborative problem-solver skilled in agile methodologies, API integration, and performance optimization to deliver seamless user experiences.",
+   "experience": [
+     {
+       "company": "One Staff Medical",
+       "location": "Omaha, NE",
+       "role": "Software Developer",
+       "date": "Dec 2024 - Aug 2025",
+       "highlights": [
+         "Developed and enhanced an internal tool using Next.js and TypeScript, improving staff efficiency and delivering a seamless user experience.",
+         "Utilized Next.js Server-Side Props and React Context API for efficient data management and optimized application performance.",
+         "Integrated RESTful APIs with Swagger for testing and validation, ensuring robust end-to-end functionality.",
+         "Collaborated with designers, product managers, and backend engineers to translate business requirements into effective technical solutions.",
+         "Contributed to backend development with C#, ASP.NET, and SQL Server by fixing bugs and implementing minor features.",
+         "Participated in requirement analysis sessions and troubleshooting across the stack, working closely with stakeholders and QA to align technical implementation with business needs and resolve defects."
+       ]
+     },
+     {
+       "company": "Milan Laser",
+       "location": "Omaha, NE",
+       "role": "Web Developer",
+       "date": "Sep 2022 - Nov 2024",
+       "highlights": [
+         "Integrated SEO best practices into site architecture and design, improving site rankings across search engines.",
+         "Collaborated with stakeholders to define requirements, assess project direction, and ensure alignment with business goals.",
+         "Actively participated in cross-functional team meetings to align development goals with business objectives.",
+         "Developed a solution to consolidate 180 metro sites into a single, unified corporate site.",
+         "Customized and added new features to existing Content Management Systems (CMS) to enhance functionality and provide clients with greater control over site content.",
+         "Designed and updated mobile-friendly, scalable user interfaces, ensuring adherence to brand guidelines and consistency.",
+         "Coordinated and participated in code deployments and production releases, ensuring seamless rollouts and minimal downtime.",
+         "Collaborated with PMs to troubleshoot and resolve customer-reported bugs.",
+         "Engaged in code review and resolved Pull Request comments.",
+         "Participated in sprint ceremonies (estimation and planning).",
+         "Applied solid understanding of Git version control."
+       ]
+     }
+   ],
+   "education": [
+     {
+       "institution": "University of Nebraska Omaha",
+       "location": "Omaha, NE",
+       "degree": "Bachelor of Science",
+       "major": "Cyber Security",
+       "minors": ["Computer Science"]
+     }
+   ],
+   "skills": {
+     "frontend": [
+       "React", "Next.js", "Gatsby.js", "Redux", "SWR", "Context API",
+       "Tailwind CSS", "Sass/SCSS", "Bootstrap", "MUI", "Formik", "Yup",
+       "HTML5", "CSS3", "WCAG Accessibility"
+     ],
+     "backend": [
+       "C#", "ASP.NET", "SQL", "RESTful API", "Firebase", "Axios"
+     ],
+     "tools": [
+       "Git / Version Control", "Github Actions", "Jenkins",
+       "Agile Methodologies", "DNS", "Figma"
+     ]
+   }
+ }
+ 
