@@ -68,7 +68,7 @@ const Contact = () => {
             </span>
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            I&apos;m always open to discussing new opportunities, 
+            I am always open to discussing new opportunities,
             interesting projects, or just having a chat about technology.
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ const Contact = () => {
             <h3 className="text-2xl font-bold text-white mb-8">
               Let&apos;s Connect
             </h3>
-            
+
             {/* Contact Details */}
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
@@ -113,13 +113,13 @@ const Contact = () => {
             <h3 className="text-2xl font-bold text-white mb-8">
               Quick Facts
             </h3>
-            
+
             <div className="space-y-6">
               {/* Skills Section */}
               <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6">
                 <h4 className="text-lg font-semibold text-white mb-4">Technologies I Work With</h4>
                 <div className="flex flex-wrap gap-2">
-                  {['React.js', 'Next.js', 'Gatsby.js', 'JavaScript', 'TypeScript', 'Node.js', 'Tailwind', 'Bootstrap', 'AWS', 'Postman', 'Cisco', 'Okta', 'Mosyle', 'WordPress', 'C#', 'SQL', 'HTML', 'CSS', 'RESTful API', 'Firebase','Docker', 'Jenkins', 'Jira', 'Swagger', 'Git'].map((tech, index) => (
+                  {['React.js', 'Next.js', 'Gatsby.js', 'JavaScript', 'TypeScript', 'Node.js', 'Tailwind', 'Bootstrap', 'AWS', 'Postman', 'Cisco', 'Okta', 'Mosyle', 'WordPress', 'C#', 'SQL', 'HTML', 'CSS', 'RESTful API', 'Firebase', 'Docker', 'Jenkins', 'Jira', 'Swagger', 'Git'].map((tech, index) => (
                     <span
                       key={index}
                       className="px-3 py-1 bg-slate-700/50 text-slate-300 text-sm rounded-full border border-slate-600/50 hover:border-blue-400/50 transition-colors duration-300"

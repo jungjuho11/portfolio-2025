@@ -93,7 +93,7 @@ const ChatWidget = () => {
       } catch {
          const errorMessage: ChatMessage = {
             id: (Date.now() + 1).toString(),
-            text: "Sorry, I&apos;m having trouble connecting right now. Please try again later.",
+            text: "Sorry, I am having trouble connecting right now. Please try again later.",
             isUser: false,
             timestamp: new Date()
          };
