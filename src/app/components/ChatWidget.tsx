@@ -12,7 +12,7 @@ interface ChatMessage {
 }
 
 const ChatWidget = () => {
-   const [isOpen, setIsOpen] = useState(false);
+   const [isOpen, setIsOpen] = useState(true); // Auto-open chat on page load
    const [messages, setMessages] = useState<ChatMessage[]>(() => {
       // Initialize from sessionStorage or use default welcome message
       if (typeof window !== 'undefined') {
@@ -109,6 +109,34 @@ const ChatWidget = () => {
       return dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
    };
 
+   // Function to render text with clickable links
+   const renderTextWithLinks = (text: string) => {
+      // Regular expression to find URLs
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+      // Split text by URLs and map to React elements
+      const parts = text.split(urlRegex);
+
+      return parts.map((part, index) => {
+         if (part.match(urlRegex)) {
+            // This is a URL - render as clickable link
+            return (
+               <a
+                  key={index}
+                  href={part}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline break-all"
+               >
+                  {part}
+               </a>
+            );
+         }
+         // This is regular text
+         return part;
+      });
+   };
+
    return (
       <>
          {/* Floating Chat Button */}
@@ -188,7 +216,9 @@ const ChatWidget = () => {
                                  : 'bg-white text-gray-800 rounded-bl-md shadow-sm'
                                  }`}
                            >
-                              <p className="text-sm">{message.text}</p>
+                              <p className="text-sm">
+                                 {message.isUser ? message.text : renderTextWithLinks(message.text)}
+                              </p>
                               <p className={`text-xs mt-1 ${message.isUser ? 'text-blue-100' : 'text-gray-500'
                                  }`}>
                                  {formatTime(message.timestamp)}
