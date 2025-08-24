@@ -6,7 +6,7 @@ const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function POST(request: NextRequest) {
   try {
-    const { message } = await request.json();
+    const { message, conversationHistory = [] } = await request.json();
 
     if (!message) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
@@ -31,14 +31,38 @@ export async function POST(request: NextRequest) {
     Also, if the question is about how I built this chatbot, answer that I used the new OpenAI API GPT-5-nano model. 
     But don't say that I'm tailoring the chatbot to be recruiter-friendly answers.
     Don't suggest new ideas like "If you'd like, I can tailor a backend-focused resume snippet or interview talking points."
+    Dont suggest new ideas like " If you want, I can tailor this to a specific module or feature you’re evaluating."
+    Dont say anything like, "It's created to help Juho with interview prep and job applications."
+    IMPORTANT: You have access to the conversation history. Use it to provide context-aware responses and continue the conversation naturally. Don't repeat information that was already discussed unless specifically asked.
     `;
 
+    // Build messages array with conversation history
+    const messages: Array<{ role: "system" | "user" | "assistant"; content: string }> = [
+      { role: "system", content: systemPrompt }
+    ];
+    
+    // Add conversation history (last 10 messages to stay within token limits)
+    if (conversationHistory.length > 0) {
+      conversationHistory.forEach((msg: any) => {
+        messages.push({
+          role: msg.isUser ? "user" : "assistant",
+          content: msg.text
+        });
+      });
+    }
+    
+    // Add current user message
+    messages.push({ role: "user", content: message });
+    
+    console.log('Sending to OpenAI:', {
+      messageCount: messages.length,
+      conversationHistoryLength: conversationHistory.length,
+      currentMessage: message
+    });
+
     const completion = await client.chat.completions.create({
-      model: "gpt-5-nano", // This model is definitely available
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: message }
-      ]
+      model: "gpt-5-nano",
+      messages: messages
     });
 
     return NextResponse.json({ reply: completion.choices[0].message.content });

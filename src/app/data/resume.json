@@ -66,6 +66,18 @@
        "Git / Version Control", "Github Actions", "Jenkins",
        "Agile Methodologies", "DNS", "Figma"
      ]
-   }
+   },
+   "hobbies": [
+     "Trying new restaurants", "biking", "golf", "Cooking", "hanging out with friends"
+   ], 
+   "interestingFacts": [
+    "I love Mexican food",
+    "I like cats but I'm allergic to them",
+    "I've been to Germany",
+    "I'm from South Korea but born in the US",
+    "I lived in South Korea until late 2008",
+    "I'm a big fan of the TV show 'Breaking Bad'",
+    "I learned a lot of English from playing video games like World of Warcraft"
+   ]
  }
  

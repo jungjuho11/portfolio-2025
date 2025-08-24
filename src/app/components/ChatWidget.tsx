@@ -8,20 +8,31 @@ interface ChatMessage {
    id: string;
    text: string;
    isUser: boolean;
-   timestamp: Date;
+   timestamp: Date | string;
 }
 
 const ChatWidget = () => {
    const [isOpen, setIsOpen] = useState(false);
-   const [messages, setMessages] = useState<ChatMessage[]>([
-      {
+   const [messages, setMessages] = useState<ChatMessage[]>(() => {
+      // Initialize from sessionStorage or use default welcome message
+      if (typeof window !== 'undefined') {
+         const saved = sessionStorage.getItem('chatMessages');
+         if (saved) {
+            try {
+               return JSON.parse(saved);
+            } catch (e) {
+               console.error('Failed to parse saved messages:', e);
+            }
+         }
+      }
+
+      return [{
          id: '1',
-         // juhotodo add hobbies
-         text: "Hi! I'm Juho's AI assistant. Ask me anything about my experience, skills, background, or hobbies!",
+         text: "Hi! I'm Juho's AI assistant. Ask me anything about my experience, skills, background, hobbies, or interesting facts!",
          isUser: false,
          timestamp: new Date()
-      }
-   ]);
+      }];
+   });
    const [inputValue, setInputValue] = useState('');
    const [isLoading, setIsLoading] = useState(false);
    const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -33,6 +44,13 @@ const ChatWidget = () => {
 
    useEffect(() => {
       scrollToBottom();
+   }, [messages]);
+
+   // Save messages to sessionStorage whenever they change
+   useEffect(() => {
+      if (typeof window !== 'undefined') {
+         sessionStorage.setItem('chatMessages', JSON.stringify(messages));
+      }
    }, [messages]);
 
    const handleSubmit = async (e: React.FormEvent) => {
@@ -56,7 +74,10 @@ const ChatWidget = () => {
             headers: {
                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ message: inputValue.trim() }),
+            body: JSON.stringify({
+               message: inputValue.trim(),
+               conversationHistory: messages.slice(-10) // Send last 10 messages for context
+            }),
          });
 
          const data = await response.json();
@@ -82,8 +103,10 @@ const ChatWidget = () => {
       }
    };
 
-   const formatTime = (date: Date) => {
-      return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+   const formatTime = (date: Date | string) => {
+      // Handle both Date objects and date strings from sessionStorage
+      const dateObj = typeof date === 'string' ? new Date(date) : date;
+      return dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
    };
 
    return (
@@ -122,12 +145,31 @@ const ChatWidget = () => {
                            <p className="text-xs text-white/80">Ask me about my experience!</p>
                         </div>
                      </div>
-                     <button
-                        onClick={() => setIsOpen(false)}
-                        className="p-1 hover:bg-white/20 rounded-full transition-colors"
-                     >
-                        <X size={20} />
-                     </button>
+                     <div className="flex items-center gap-2">
+                        <button
+                           onClick={() => {
+                              setMessages([{
+                                 id: Date.now().toString(),
+                                 text: "Hi! I'm Juho's AI assistant. Ask me anything about my experience, skills, background, hobbies, or interesting facts!",
+                                 isUser: false,
+                                 timestamp: new Date()
+                              }]);
+                              sessionStorage.removeItem('chatMessages');
+                           }}
+                           className="p-1 hover:bg-white/20 rounded-full transition-colors text-xs"
+                           title="Clear conversation"
+                        >
+                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                           </svg>
+                        </button>
+                        <button
+                           onClick={() => setIsOpen(false)}
+                           className="p-1 hover:bg-white/20 rounded-full transition-colors"
+                        >
+                           <X size={20} />
+                        </button>
+                     </div>
                   </div>
 
                   {/* Messages */}
