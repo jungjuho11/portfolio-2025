@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     
     // Add conversation history (last 10 messages to stay within token limits)
     if (conversationHistory.length > 0) {
-      conversationHistory.forEach((msg: any) => {
+      conversationHistory.forEach((msg: { isUser: boolean; text: string }) => {
         messages.push({
           role: msg.isUser ? "user" : "assistant",
           content: msg.text
