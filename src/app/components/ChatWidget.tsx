@@ -28,7 +28,7 @@ const ChatWidget = () => {
 
       return [{
          id: '1',
-         text: "Hi! I'm Juho's AI assistant. Ask me anything about my experience, skills, background, hobbies, or interesting facts!",
+         text: "Hi! I'm Juho's AI assistant. Ask me anything about my experience, skills, background, hobbies, or interesting facts! (Results won't be perfect every time, but I'll try my best to answer your question)",
          isUser: false,
          timestamp: new Date()
       }];
@@ -178,7 +178,7 @@ const ChatWidget = () => {
                            onClick={() => {
                               setMessages([{
                                  id: Date.now().toString(),
-                                 text: "Hi! I'm Juho's AI assistant. Ask me anything about my experience, skills, background, hobbies, or interesting facts!",
+                                 text: "Hi! I'm Juho's AI assistant. Ask me anything about my experience, skills, background, hobbies, or interesting facts! (Results won't be perfect every time, but I'll try my best to answer your question)",
                                  isUser: false,
                                  timestamp: new Date()
                               }]);
